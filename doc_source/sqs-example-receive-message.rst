@@ -148,4 +148,3 @@ The example uses this utility function.
 
 .. literalinclude:: sqs.go.longpolling_receive_message.exit.txt
    :language: go
-   :dedent: 4

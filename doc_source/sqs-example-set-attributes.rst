@@ -69,7 +69,7 @@ You must import the relevant Go and |sdk-go| packages by adding the following li
 
 Get the queue name and timeout passed in by the user.
 
-.. literalinclude:: sqs.go.longpolling_existing_queue.imports.txt
+.. literalinclude:: sqs.go.longpolling_existing_queue.vars.txt
    :language: go
 
 Initialize a session that the SDK will use to load credentials

@@ -93,7 +93,6 @@ You must import the relevant Go and |sdk-go| packages by adding the following li
 
 .. literalinclude:: sqs.go.configure_lp_queue.imports.txt
    :language: go
-   :dedent: 4
 
 Initialize a session that the SDK will use to load credentials
 from the shared credentials file, ~/.aws/credentials.
