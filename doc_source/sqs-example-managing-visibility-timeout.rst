@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -49,7 +49,6 @@ Prerequisites
 * You are familiar with using |SQS| visibility timeout. To learn more,
   see :sqs-dg:`Visibility Timeout <sqs-visibility-timeout>` in the |SQS-dg|.
 
-
 .. _sqs-example-visibility-timeout:
 
 Change the Visibility Timeout
@@ -59,23 +58,18 @@ Create a new Go file named :file:`sqs_changingvisibility.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 
-.. literalinclude:: example_code/sqs/sqs_changingvisibility.go
-   :lines: 15-23
+.. literalinclude:: sqs.go.change_message_visibility.imports.txt
+   :language: go
 
 Initialize a session that the SDK will use to load credentials
 from the shared credentials file, ~/.aws/credentials.
 
-.. literalinclude:: example_code/sqs/sqs_changingvisibility.go
-   :lines: 27, 30-35
+.. literalinclude:: sqs.go.change_message_visibility.sess.txt
+   :language: go
+   :dedent: 4
 
-Get a message from the queue. Call ``ReceiveMessage``. Pass in the URL of the queue
-to return details of the next message in the queue. Print any errors, or a
-message if no message was received.
+Use the receipt handle of a message to set the visibility timeout to `visibility`.
 
-.. literalinclude:: example_code/sqs/sqs_changingvisibility.go
-   :lines: 38-60
-
-If a message was returned, use its receipt handle to set the timeout to 30 seconds.
-
-.. literalinclude:: example_code/sqs/sqs_changingvisibility.go
-   :lines: 63-76
+.. literalinclude:: sqs.go.change_message_visibility.op.txt
+   :language: go
+   :dedent: 4

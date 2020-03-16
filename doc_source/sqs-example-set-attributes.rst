@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -64,34 +64,31 @@ Create a new Go file named :file:`sqs_longpolling_existing_queue.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 
-.. literalinclude:: example_code/sqs/sqs_longpolling_existing_queue.go
-   :lines: 15-27
+.. literalinclude:: sqs.go.configure_lp_queue.imports.txt
+   :language: go
 
 Get the queue name and timeout passed in by the user.
 
-.. literalinclude:: example_code/sqs/sqs_longpolling_existing_queue.go
-   :lines: 33-43
+.. literalinclude:: sqs.go.longpolling_existing_queue.imports.txt
+   :language: go
 
 Initialize a session that the SDK will use to load credentials
 from the shared credentials file, ~/.aws/credentials.
 
-.. literalinclude:: example_code/sqs/sqs_longpolling_existing_queue.go
-   :lines: 47-52
+.. literalinclude:: sqs.go.longpolling_existing_queue.session.txt
+   :language: go
+   :dedent: 4
 
 Get the queue. You need to convert the queue name into a URL. You can use the ``GetQueueUrl``
 API call to retrieve the URL. This is needed for setting attributes on the queue. Print
 any errors.
 
-.. literalinclude:: example_code/sqs/sqs_longpolling_existing_queue.go
-   :lines: 57-65
+.. literalinclude:: sqs.go.longpolling_existing_queue.url.txt
+   :language: go
+   :dedent: 4
 
 Update the queue to enable long polling.
 
-.. literalinclude:: example_code/sqs/sqs_longpolling_existing_queue.go
-   :lines: 68-79
-
-The example uses this utility function.
-
-.. literalinclude:: example_code/sqs/sqs_longpolling_existing_queue.go
-   :lines: 81-84
-
+.. literalinclude:: sqs.go.longpolling_existing_queue.enable.txt
+   :language: go
+   :dedent: 4

@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -63,23 +63,31 @@ Create a new Go file with the name :file:`sqs_deadletterqueue.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 
-.. literalinclude:: example_code/sqs/sqs_deadletterqueue.go
-   :lines: 15-24
+.. literalinclude:: sqs.go.dead_letter_queue.imports.txt
+   :language: go
 
 Initialize a session that the SDK will use to load credentials
 from the shared credentials file, ~/.aws/credentials.
 
-.. literalinclude:: example_code/sqs/sqs_deadletterqueue.go
-   :lines: 28,31-36
+.. literalinclude:: sqs.go.dead_letter_queue.sess.txt
+   :language: go
+   :dedent: 4
 
 Define the redrive policy for the queue, then marshal the policy to use as input
 for the ``SetQueueAttributes`` call.
 
-.. literalinclude:: example_code/sqs/sqs_deadletterqueue.go
-   :lines: 39-43,46-50
+.. literalinclude:: sqs.go.dead_letter_queue.policy.txt
+   :language: go
+   :dedent: 4
+
+Convert the policy into a sequence of bytes.
+
+.. literalinclude:: sqs.go.dead_letter_queue.marshall.txt
+   :language: go
+   :dedent: 4
 
 Set the policy on the queue.
 
-.. literalinclude:: example_code/sqs/sqs_deadletterqueue.go
-   :lines: 52-65
-
+.. literalinclude:: sqs.go.dead_letter_queue.set_attributes.txt
+   :language: go
+   :dedent: 4
