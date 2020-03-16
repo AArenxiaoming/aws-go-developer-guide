@@ -92,7 +92,6 @@ You must import the relevant Go and |sdk-go| packages by adding the following li
 
 .. literalinclude:: sqs.go.delete_message.imports.txt
    :language: go
-   :dedent: 4
 
 Initialize a session that the SDK will use to load credentials
 from the shared credentials file, ~/.aws/credentials.
@@ -116,7 +115,7 @@ Create a new Go file named :file:`sqs_longpolling_receive_message.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 
-.. literalinclude:: sqs.go.longpolling_receive_message.complete.txt
+.. literalinclude:: sqs.go.longpolling_receive_message.imports.txt
    :language: go
 
 Get the queue name and timeout passed from the command.
