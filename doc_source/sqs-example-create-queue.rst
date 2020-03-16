@@ -143,6 +143,6 @@ Create a service client and call ``DeleteQueue`` passing in the queue name. Prin
 or a success message.
 
 .. literalinclude:: sqs.go.delete_queue.call.txt
-   :lines: go
+   :language: go
    :dedent: 4
 
