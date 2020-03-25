@@ -77,7 +77,11 @@ passing in ``nil`` to return all queues.
    :language: go
    :dedent: 4
 
-The result contains a list of queues.
+Display the list of queues.
+
+.. literalinclude:: sqs.go.list_queues.display.txt
+   :language: go
+   :dedent: 4
 
 Create a Queue
 ==============
@@ -151,9 +155,8 @@ from the shared credentials file, ~/.aws/credentials.
    :language: go
    :dedent: 4
 
-Create a service client and call ``DeleteQueue`` passing in the queue name. Print any errors
-or a success message.
+Create a service client and call ``DeleteQueue`` passing in the queue name.
 
-.. literalinclude:: sqs.go.delete_queue.get_queue_url.txt
+.. literalinclude:: sqs.go.delete_queue.call.txt
    :language: go
    :dedent: 4

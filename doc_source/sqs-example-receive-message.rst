@@ -81,10 +81,44 @@ author, and weeks on the list values.
    :language: go
    :dedent: 4
 
-.. _sqs-example-receive-delete-message:
+.. _sqs-example-receive-message:
 
-Receive and Delete a Message from a Queue
-=========================================
+Receive a Message from a Queue
+==============================
+
+Create a new Go file named :file:`ReceiveMessage.go`.
+
+You must import the relevant Go and |sdk-go| packages by adding the following lines.
+
+.. literalinclude:: sqs.go.receive_messages.imports.txt
+   :language: go
+
+Get the name of the queue and a timeout value, in seconds,
+to hide the message from other consumers.
+
+.. literalinclude:: sqs.go.receive_messages.args.txt
+   :language: go
+   :dedent: 4
+
+Initialize a session that the SDK will use to load credentials
+from the shared credentials file, ~/.aws/credentials.
+
+.. literalinclude:: sqs.go.receive_messages.sess.txt
+   :language: go
+   :dedent: 4
+
+Create a service client and get the message.
+
+.. literalinclude:: sqs.go.receive_messages.call.txt
+   :language: go
+   :dedent: 4
+
+The receipt handle for the message is in the `ReceiptHandle` property of the result.
+
+.. _sqs-example-delete-message:
+
+Delete a Message from a Queue
+==============================
 
 Create a new Go file named :file:`DeleteMessage.go`.
 
