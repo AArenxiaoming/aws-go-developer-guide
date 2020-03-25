@@ -18,7 +18,6 @@ Using Dead Letter Queues in |SQS|
    :description: Use an Amazon SQS queue to receive and hold messages with this AWS SDK for Go code example.
    :keywords: AWS SDK for Go code examples, SQS, create queue
 
-
 This |sdk-go| example shows you how to configure source |SQS| queues that send messages to
 a dead letter queue.
 
@@ -59,7 +58,7 @@ that route unprocessed messages to the dead letter queue. To do this, specify a 
 that identifies the queue to use as a dead letter queue and the maximum number of receives by
 individual messages before they are routed to the dead letter queue.
 
-Create a new Go file with the name :file:`sqs_deadletterqueue.go`.
+Create a new Go file with the name :file:`DeadLetterQueue.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 

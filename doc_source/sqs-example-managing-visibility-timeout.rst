@@ -54,7 +54,7 @@ Prerequisites
 Change the Visibility Timeout
 =============================
 
-Create a new Go file named :file:`sqs_changingvisibility.go`.
+Create a new Go file named :file:`ChangeMsgVisibility.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 

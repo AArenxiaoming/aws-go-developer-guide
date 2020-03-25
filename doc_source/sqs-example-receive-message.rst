@@ -58,7 +58,7 @@ Prerequisites
 Send a Message to a Queue
 =========================
 
-Create a new Go file named :file:`sqs_sendmessage.go`.
+Create a new Go file named :file:`SendMessage.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 
@@ -86,7 +86,7 @@ author, and weeks on the list values.
 Receive and Delete a Message from a Queue
 =========================================
 
-Create a new Go file named :file:`sqs_deletemessage.go`.
+Create a new Go file named :file:`DeleteMessage.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 
@@ -106,45 +106,3 @@ Delete the message with the specified receipt handle from the queue.
    :language: go
    :dedent: 4
 
-.. _sqs-example-send-receive-message:
-
-Send and Receive Messages
-=========================
-
-Create a new Go file named :file:`sqs_longpolling_receive_message.go`.
-
-You must import the relevant Go and |sdk-go| packages by adding the following lines.
-
-.. literalinclude:: sqs.go.longpolling_receive_message.imports.txt
-   :language: go
-
-Get the queue name and timeout passed from the command.
-
-.. literalinclude:: sqs.go.longpolling_receive_message.vars.txt
-   :language: go
-   :dedent: 4
-
-Initialize a session that the SDK will use to load credentials
-from the shared credentials file, ~/.aws/credentials.
-
-.. literalinclude:: sqs.go.longpolling_receive_message.session.txt
-   :language: go
-   :dedent: 4
-
-Get the Queue. You need to convert the queue name into a URL. You can use the ``GetQueueUrl``
-API call to retrieve the URL. This is needed for receiving messages from the queue. Print
-any errors.
-
-.. literalinclude:: sqs.go.longpolling_receive_message.url.txt
-   :language: go
-   :dedent: 4
-
-Call ``ReceiveMessage`` to get the latest message from the queue.
-
-.. literalinclude:: sqs.go.longpolling_receive_message.receive.txt
-   :language: go
-
-The example uses this utility function.
-
-.. literalinclude:: sqs.go.longpolling_receive_message.exit.txt
-   :language: go

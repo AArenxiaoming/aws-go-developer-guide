@@ -65,7 +65,7 @@ Enable Long Polling When Creating a Queue
 This example creates a queue with long polling enabled. If the queue already exists,
 no error is returned.
 
-Create a new Go file named :file:`sqs_longpolling_create_queue.go`. You must import the
+Create a new Go file named :file:`CreateLPQueue.go`. You must import the
 relevant Go and |sdk-go| packages by adding the following lines.
 
 .. literalinclude:: sqs.go.create_lp_queue.imports.txt
@@ -87,7 +87,7 @@ Create the queue with long polling enabled. Print any errors or a success messag
 Enable Long Polling on an Existing Queue
 ========================================
 
-Create a new Go file named :file:`sqs_longpolling_existing_queue.go`.
+Create a new Go file named :file:`ConfigureLPQueue.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 
@@ -111,7 +111,7 @@ queue URL. Print any errors or a success message.
 Enable Long Polling on Message Receipt
 ======================================
 
-Create a new Go file named :file:`sqs_longpolling_receive_message.go`.
+Create a new Go file named :file:`ReceiveLPMessage.go`.
 
 You must import the relevant Go and |sdk-go| packages by adding the following lines.
 

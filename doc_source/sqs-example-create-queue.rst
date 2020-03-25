@@ -57,7 +57,7 @@ Prerequisites
 List Queues
 ===========
 
-Create a new Go file named :file:`sqs_listqueues.go`. You must import the relevant Go and
+Create a new Go file named :file:`ListQueues.go`. You must import the relevant Go and
 |sdk-go| packages by adding the following lines.
 
 .. literalinclude:: sqs.go.list_queues.imports.txt
@@ -79,32 +79,44 @@ passing in ``nil`` to return all queues.
 
 The result contains a list of queues.
 
-Create Queues
-=============
+Create a Queue
+==============
 
-Create a new Go file named :file:`sqs_createqueues.go`. You must import the relevant Go and
+Create a new Go file named :file:`CreateQueue.go`. You must import the relevant Go and
 |sdk-go| packages by adding the following lines.
 
 .. literalinclude:: sqs.go.create_queue.imports.txt
    :language: go
 
+Get the name of the queue from the command line.
+If no name is supplied print an error message and quit.
+
+.. literalinclude:: sqs.go.create_queue.args.txt
+   :language: go
+   :dedent: 4
+            
 Initialize a session that the SDK will use to load credentials from the shared credentials file, ~/.aws/credentials.
 
 .. literalinclude:: sqs.go.create_queue.sess.txt
    :language: go
    :dedent: 4
 
-Create a service client and call ``CreateQueue`` passing in the new queue name and queue attributes.
+Create a service client and call ``CreateQueue`` with the name of the queue.
 
 .. literalinclude:: sqs.go.create_queue.call.txt
    :language: go
    :dedent: 4
 
+Print the URL of the queue.
+
+.. literalinclude:: sqs.go.create_queue.print.txt
+   :language: go
+   :dedent: 4
 
 Get a Queue URL
 ===============
 
-Create a new Go file named :file:`sqs_getqueueurl.go`. You must import the relevant Go and
+Create a new Go file named :file:`GetQueueURL.go`. You must import the relevant Go and
 |sdk-go| packages by adding the following lines.
 
 .. literalinclude:: sqs.go.get_queue_url.imports.txt
@@ -126,7 +138,7 @@ Create a service client and call ``GetQueueUrl`` passing in the queue name.
 Delete a Queue
 ==============
 
-Create a new Go file named :file:`sqs_deletequeue.go`. You must import the relevant Go and
+Create a new Go file named :file:`DeleteQueue.go`. You must import the relevant Go and
 |sdk-go| packages by adding the following lines.
 
 .. literalinclude:: sqs.go.delete_queue.imports.txt
@@ -142,7 +154,6 @@ from the shared credentials file, ~/.aws/credentials.
 Create a service client and call ``DeleteQueue`` passing in the queue name. Print any errors
 or a success message.
 
-.. literalinclude:: sqs.go.delete_queue.call.txt
+.. literalinclude:: sqs.go.delete_queue.get_queue_url.txt
    :language: go
    :dedent: 4
-
