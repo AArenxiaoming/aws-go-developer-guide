@@ -18,7 +18,6 @@ Managing Visibility Timeout in |SQS| Queues
    :description: Manage visibility timeout with Amazon SQS queues using this AWS SDK for Go code exammple.
    :keywords: AWS SDK for Go code examples, creating SQS queues
 
-
 This |sdk-go| example shows you how to:
 
 * Change visibility timeout with |SQS| queues
@@ -31,14 +30,10 @@ You can download complete versions of these example files from the
 Scenario
 ========
 
-This example manages visibility timeout with |SQS| queues. It uses these methods of the
+This example manages visibility timeout with |SQS| queues. It uses the following method of the
 |SQS| client class:
 
-* :sdk-go-api-deep:`CreateQueue <service/sqs/#SQS.CreateQueue>`
-* :sdk-go-api-deep:`ListQueues <service/sqs/#SQS.ListQueues>`
-* :sdk-go-api-deep:`GetQueueUrl <service/sqs/#SQS.GetQueueUrl>`
-* :sdk-go-api-deep:`DeleteQueue <service/sqs/#SQS.DeleteQueue>`
-
+* :sdk-go-api-deep:`ChangeMessageVisibility <service/sqs/#SQS.ChangeMessageVisibility>`
 
 .. _sqs-visibility-prerequisites:
 

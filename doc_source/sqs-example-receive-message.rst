@@ -34,12 +34,12 @@ The Scenario
 
 These examples demonstrate sending, receiving, and deleting messages from an |SQS| queue.
 
-The code uses these methods of the |SQS| client class:
+The examples use the following methods of the |SQS| client class:
 
-* :sdk-go-api-deep:`SendMessage <service/sqs/#SQS.SendMessage>`
-* :sdk-go-api-deep:`ReceiveMessage <service/sqs/#SQS.ReceiveMessage>`
 * :sdk-go-api-deep:`DeleteMessage <service/sqs/#SQS.DeleteMessage>`
 * :sdk-go-api-deep:`GetQueueUrl <service/sqs/#SQS.GetQueueUrl>`
+* :sdk-go-api-deep:`ReceiveMessage <service/sqs/#SQS.ReceiveMessage>`
+* :sdk-go-api-deep:`SendMessage <service/sqs/#SQS.SendMessage>`
 
 .. _sqs-receive-message-prerequisites:
 
@@ -113,12 +113,16 @@ Create a service client and get the message.
    :language: go
    :dedent: 4
 
-The receipt handle for the message is in the `ReceiptHandle` property of the result.
+Print the receipt handle for the message.
+
+.. literalinclude:: sqs.go.receive_messages.print_handle.txt
+   :language: go
+   :dedent: 4
 
 .. _sqs-example-delete-message:
 
 Delete a Message from a Queue
-==============================
+=============================
 
 Create a new Go file named :file:`DeleteMessage.go`.
 

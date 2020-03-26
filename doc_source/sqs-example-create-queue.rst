@@ -18,7 +18,6 @@ Using |SQS| Queues
    :description: Learn to work with Amazon SQS queues using this AWS SDK for Go.
    :keywords: AWS SDK for Go code examples, SQS, create queue
 
-
 These |sdk-go| examples show you how to:
 
 *  List |SQS| queues
@@ -36,12 +35,12 @@ Scenario
 
 These examples demonstrate how to work with |SQS| queues.
 
-The code uses these methods of the |SQS| client class:
+The examples use the following methods of the |SQS| client class:
 
 * :sdk-go-api-deep:`CreateQueue <service/sqs/#SQS.CreateQueue>`
-* :sdk-go-api-deep:`ListQueues <service/sqs/#SQS.ListQueues>`
-* :sdk-go-api-deep:`GetQueueUrl <service/sqs/#SQS.GetQueueUrl>`
 * :sdk-go-api-deep:`DeleteQueue <service/sqs/#SQS.DeleteQueue>`
+* :sdk-go-api-deep:`GetQueueUrl <service/sqs/#SQS.GetQueueUrl>`
+* :sdk-go-api-deep:`ListQueues <service/sqs/#SQS.ListQueues>`
 
 .. _sqs-create-prerequisites:
 
@@ -50,7 +49,6 @@ Prerequisites
 
 * You have :doc:`set up <setting-up>` and :doc:`configured <configuring-sdk>` the |sdk-go|.
 * You are familiar with using |SQS|. To learn more, see :sqs-dg:`How Queues Work <sqs-how-it-works>` in the |SQS-dg|.
-
 
 .. _sqs-example-list-queues:
 
@@ -136,6 +134,12 @@ from the shared credentials file, ~/.aws/credentials.
 Create a service client and call ``GetQueueUrl`` passing in the queue name.
 
 .. literalinclude:: sqs.go.get_queue_url.call.txt
+   :language: go
+   :dedent: 4
+
+Print the URL of the queue.
+
+.. literalinclude:: sqs.go.get_queue_url.print.txt
    :language: go
    :dedent: 4
 

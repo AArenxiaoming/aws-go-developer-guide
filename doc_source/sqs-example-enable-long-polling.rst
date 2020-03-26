@@ -18,7 +18,6 @@ Enabling Long Polling in |SQS| Queues
    :description: Enable long polling with Amazon SQS queues using this AWS SDK code example.
    :keywords: AWS SDK for Go code examples, SQS, create queue
 
-
 These |sdk-go| examples show you how to:
 
 * Enable long polling when you create an |SQS| queue
@@ -41,11 +40,11 @@ messages. You can do this by setting the ``ReceiveMessageWaitTimeSeconds`` param
 or by
 setting the ``WaitTimeSeconds`` parameter on a message when it is received.
 
-The code uses these methods of the |SQS| client class:
+This example uses the following methods of the |SQS| client class:
 
-* :sdk-go-api-deep:`SetQueueAttributes <service/sqs/#SQS.SetQueueAttributes>`
-* :sdk-go-api-deep:`ReceiveMessage <service/sqs/#SQS.ReceiveMessage>`
 * :sdk-go-api-deep:`CreateQueue <service/sqs/#SQS.CreateQueue>`
+* :sdk-go-api-deep:`ReceiveMessage <service/sqs/#SQS.ReceiveMessage>`
+* :sdk-go-api-deep:`SetQueueAttributes <service/sqs/#SQS.SetQueueAttributes>`
 
 .. _sqs-long-polling-prerequisites:
 
@@ -55,7 +54,6 @@ Prerequisites
 * You have :doc:`set up <setting-up>` and :doc:`configured <configuring-sdk>` the |sdk-go|.
 * You are familiar with |SQS| polling. To learn more, see
   :sqs-dg:`Long Polling <sqs-long-polling>` in the |SQS-dg|.
-
 
 .. _sqs-example-create-queue-long-pollling:
 
