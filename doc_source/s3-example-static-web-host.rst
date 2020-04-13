@@ -75,7 +75,7 @@ Initialize a session that the SDK will use to load credentials from the shared c
 Create a service object and call :sdk-go-api-deep:`GetBucketWebsite <service/s3/#S3.GetBucketWebsite>`
 to get the bucket configuration.
 
-.. literalinclude:: snippet-start:[s3.go.get_bucket_website.call.txt
+.. literalinclude:: s3.go.get_bucket_website.call.txt
    :language: go
    :dedent: 4
 
@@ -132,7 +132,7 @@ and call :sdk-go-api-deep:`PutBucketWebsite <service/s3/#S3.PutBucketWebsite>`,
 including the bucket name and index document details.
 If the user passed in an error page, add that to the parameters.
 
-.. literalinclude:: snippet-start:[s3.go.put_bucket_website.call.txt
+.. literalinclude:: s3.go.put_bucket_website.call.txt
    :language: go
    :dedent: 4
 

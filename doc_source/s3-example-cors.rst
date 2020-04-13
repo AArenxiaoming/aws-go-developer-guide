@@ -88,7 +88,7 @@ Create a new :sdk-go-api-deep:`CORSRule <service/s3/#CORSRule>` to set up the CO
 Add the ``CORSRule`` to the ``PutBucketCorsInput`` structure, and call ``PutBucketCors`` with
 that structure.
 
-.. literalinclude:: snippet-start:[s3.go.put_bucket_cors.call.txt
+.. literalinclude:: s3.go.put_bucket_cors.call.txt
    :dedent: 4
    :language: go
 
