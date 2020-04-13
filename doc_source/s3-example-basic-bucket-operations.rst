@@ -457,7 +457,7 @@ Initialize the session that the SDK uses to load credentials from the shared cre
 Create a client object, a list iterator to iterate through the list of bucket objects,
 and call `NewBatchDeleteWithClient` to delete the object.
 
-.. literalinclude:: snippet-start:[s3.go.delete_objects.call.txt
+.. literalinclude:: s3.go.delete_objects.call.txt
    :language: go
    :dedent: 4
 
