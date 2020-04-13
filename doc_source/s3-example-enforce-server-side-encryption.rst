@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -31,38 +31,39 @@ results.
 
 Choose :code:`Copy` to save the code locally.
 
-Create the file *require_server_encryption.go*.
+Create the file *RequireServerEncryption.go*.
 
 Import the required packages.
 
-.. literalinclude:: ./example_code/s3/s3_require_server_encryption.go
-   :lines: 17-26
+.. literalinclude:: s3.go.require_server_encryption.imports.txt
    :dedent: 0
    :language: go
 
-Set the name of the bucket, create a session, and create an Amazon S3 client.
+Get the name of the bucket from the command line.
 
-.. literalinclude:: ./example_code/s3/s3_require_server_encryption.go
-   :lines: 29,34-38
+.. literalinclude:: s3.go.require_server_encryption.args.txt
    :dedent: 4
    :language: go
 
 Create an |S3| policy that requires server-side KMS encryption on objects
 uploaded to the bucket.
 
-.. literalinclude:: ./example_code/s3/s3_require_server_encryption.go
-   :lines: 40-68
+.. literalinclude:: s3.go.require_server_encryption.policy.txt
    :dedent: 4
    :language: go
 
-Convert the policy into JSON, create the input for and call :code:`PutBucketPolicy`, apply the policy to the bucket,
-and print a success message.
+Convert the policy into JSON.
 
-.. literalinclude:: ./example_code/s3/s3_require_server_encryption.go
-   :lines: 71, 78-81, 83, 90
+.. literalinclude:: s3.go.require_server_encryption.policy.txt
+   :dedent: 4
+   :language: go
+
+Call :code:`PutBucketPolicy`, applying the policy to the bucket.
+
+.. literalinclude:: s3.go.require_server_encryption.call.txt
    :dedent: 4
    :language: go
 
 See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/s3_require_server_encryption.go>`_
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/RequireServerEncryption/RequireServerEncryption.go>`_
 on GitHub.

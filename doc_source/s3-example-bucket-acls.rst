@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -61,53 +61,45 @@ The
 :sdk-go-api-deep:`GetBucketAcl <service/s3/#S3.GetBucketAcl>`
 function gets the ACLs on a bucket.
 
-The following example gets the ACLs on a bucket with the name specified as
-a command line argument.
+The following example gets the ACLs on a bucket.
 
-Create the file *s3_get_bucket_acl.go*.
+Create the file *GetBucketAcl.go*.
 Add the following statements to import the Go and |sdk-go| packages used in the example.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_acl.go
-   :lines: 17-23
+.. literalinclude:: s3.go.get_bucket_acl.imports.txt
+   :dedent: 0
    :language: go
 
-Create a function to display errors and exit.
+Get the name of the bucket from the command line.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_acl.go
-   :lines: 69-72
-   :language: go
-
-This example requires one input parameter, the name of the bucket.
-If the name is not supplied, call the error function and exit.
-
-.. literalinclude:: example_code/s3/s3_get_bucket_acl.go
-   :lines: 30-34
+.. literalinclude:: s3.go.get_bucket_acl.args.txt
    :language: go
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials
 from the shared credentials file *~/.aws/credentials*,
-the region from the shared configuration file *~/.aws/config*,
-and create a new |S3| service client.
+the region from the shared configuration file *~/.aws/config*.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_acl.go
-   :lines: 38-43
+.. literalinclude:: s3.go.get_bucket_acl.session.txt
    :language: go
    :dedent: 4
 
-Call :sdk-go-api-deep:`GetBucketAcl <service/s3/#S3.GetBucketAcl>`,
+Create a service client and call :sdk-go-api-deep:`GetBucketAcl <service/s3/#S3.GetBucketAcl>`,
 passing in the name of the bucket.
-If an error occurs, call ``exitErrorf``.
-If no error occurs, loop through the results
+
+.. literalinclude:: s3.go.get_bucket_acl.call.txt
+   :language: go
+   :dedent: 4
+
+Loop through the results
 and print out the name, type, and permission for the grantees.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_acl.go
-   :lines: 46-66
+.. literalinclude:: s3.go.get_bucket_acl.print.txt
    :language: go
    :dedent: 4
 
 See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/s3_get_bucket_acl.go>`_
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/GetBucketAcl/GetBucketAcl.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-acls-set-bucket-acl:
@@ -119,73 +111,58 @@ The
 :sdk-go-api-deep:`PutBucketAcl <service/s3/#S3.PutBucketAcl>`
 function sets the ACLs on a bucket.
 
-The following example gives a user access by email address to a bucket
-with the bucket name and email address specified as command line arguments.
-The user can also supply a permission argument. However,
-if it isn'o't supplied, the user is given READ access to the bucket.
+The following example gives a user with the specified email address READ access to a bucket.
 
-Create the file *s3_put_bucket_acl.go*.
-Add the following statements to import the Go and |sdk-go| packages used in the example.
+Create the file *PutBucketAcl.go*.
+Import the following Go and |sdk-go| packages used in the example.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_acl.go
-   :lines: 17-23
+.. literalinclude:: s3.go.put_bucket_acl.imports.txt
+   :dedent: 0
    :language: go
 
-Create a function to display errors and exit.
-
-.. literalinclude:: example_code/s3/s3_put_bucket_acl.go
-   :lines: 101-104
-   :language: go
-
-Get the two required input parameters.
+Get the bucket name and user's email address from the command line.
 If the optional permission parameter is supplied,
 make sure it is one of the allowed values.
-If not, print an error message and quit.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_acl.go
-   :lines: 31-49
+.. literalinclude:: s3.go.put_bucket_acl.args.txt
    :language: go
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials
 from the shared credentials file *~/.aws/credentials*,
-the region from the shared configuration file *~/.aws/config*,
-and create a new |S3| service client.
+the region from the shared configuration file *~/.aws/config*.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_acl.go
-   :lines: 55-60
+.. literalinclude:: s3.go.put_bucket_acl.session.txt
    :language: go
    :dedent: 4
 
-Get the existing ACLs and append the new user to the list.
-If there is an error while retrieving the list,
-print an error message and quit.
+Create a new service client and get the existing ACLs.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_acl.go
-   :lines: 63-79
+.. literalinclude:: s3.go.put_bucket_acl.service_acl.txt
    :language: go
    :dedent: 4
+            
+Append the new user to the list.
 
-Build the parameter list for the call based on the existing
-ACLs and the new user information.
-
-.. literalinclude:: example_code/s3/s3_put_bucket_acl.go
-   :lines: 81-90
+.. literalinclude:: s3.go.put_bucket_acl.add_grant.txt
    :language: go
    :dedent: 4
 
 Call :sdk-go-api-deep:`PutBucketAcl <service/s3/#S3.PutBucketAcl>`,
 passing in the parameter list.
-If an error occurs, display a message and quit.
-Otherwise, display a message indicating success.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_acl.go
-   :lines: 93-98
+.. literalinclude:: s3.go.put_bucket_acl.call.txt
+   :language: go
+   :dedent: 4
+
+Display a messge indicating success.
+
+.. literalinclude:: s3.go.put_bucket_acl.print.txt
    :language: go
    :dedent: 4
 
 See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/s3_put_bucket_acl.go>`_
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/PutBucketAcl/PutBucketAcl.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-acls-make-bucket-public-acl:
@@ -197,52 +174,37 @@ As in the previous example, the
 :sdk-go-api-deep:`PutBucketAcl <service/s3/#S3.PutBucketAcl>`
 function sets the ACLs on a bucket.
 
-The following example gives everyone read-only access to the items in the bucket
-with the bucket name specified as a command line argument.
+The following example gives everyone read-only access to the items in the bucket.
 
-Create the file *s3_make_bucket_public.go*.
+Create the file *MakeBucketPublic.go*.
 Add the following statements to import the Go and |sdk-go| packages used in the example.
 
-.. literalinclude:: example_code/s3/s3_make_bucket_public.go
-   :lines: 17-23
+.. literalinclude:: s3.go.make_bucket_public.imports.txt
    :dedent: 0
    :language: go
 
-Create a function to display errors and exit.
+Get the bucket name from the command line.
 
-.. literalinclude:: example_code/s3/s3_make_bucket_public.go
-   :lines: 25-28
-   :dedent: 0
-   :language: go
-
-Get the required input parameter and create the **acl**.
-
-.. literalinclude:: example_code/s3/s3_make_bucket_public.go
-   :lines: 35-39, 43
+.. literalinclude:: s3.go.make_bucket_public.args.txt
    :dedent: 4
    :language: go
 
 Initialize the session that the SDK uses to load credentials
 from the shared credentials file *~/.aws/credentials*
-the region from the shared configuration file *~/.aws/config*,
-and create a new |S3| service client.
+the region from the shared configuration file *~/.aws/config*.
 
-.. literalinclude:: example_code/s3/s3_make_bucket_public.go
-   :lines: 48-50, 53
+.. literalinclude:: s3.go.make_bucket_public.session.txt
    :language: go
    :dedent: 4
 
-Create the input for and call :sdk-go-api-deep:`PutBucketAcl <service/s3/#S3.PutBucketAcl>`.
-If an error occurs, display a message and quit.
-Otherwise, display a message indicating success.
+Create a service client and the input for and call :sdk-go-api-deep:`PutBucketAcl <service/s3/#S3.PutBucketAcl>`.
 
-.. literalinclude:: example_code/s3/s3_make_bucket_public.go
-   :lines: 55-66
+.. literalinclude:: s3.go.make_bucket_public.call.txt
    :language: go
    :dedent: 4
 
 See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/s3_make_bucket_public.go>`_
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/MakeBucketPublic/MakeBucketPublic.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-acls-get-bucket-object-acl:
@@ -254,27 +216,18 @@ The
 :sdk-go-api-deep:`PutObjectAcl <service/s3/#S3.PutObjectAcl>`
 function sets the ACLs on a bucket item.
 
-The following example gets the ACLs for a bucket item
-with the bucket and item name specified as command line arguments.
+The following example gets the ACLs for a bucket item.
 
-Create the file *s3_get_bucket_object_acl.go*.
+Create the file *GetObjectAcl.go*.
 Add the following statements to import the Go and |sdk-go| packages used in the example.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_object_acl.go
-   :lines: 17-23
+.. literalinclude:: s3.go.get_object_acl.imports.txt
+   :dedent: 0
    :language: go
 
-Create a function to display errors and exit.
+Get the names of the bucket and object from the command line.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_object_acl.go
-   :lines: 64-67
-   :language: go
-
-This example requires two input parameters, the names of the bucket and object.
-If either name is not supplied, call the error function and exit.
-
-.. literalinclude:: example_code/s3/s3_get_bucket_object_acl.go
-   :lines: 30-35
+.. literalinclude:: s3.go.get_object_acl.args.txt
    :language: go
    :dedent: 4
 
@@ -283,24 +236,26 @@ from the shared credentials file *~/.aws/credentials*,
 the region from the shared configuration file *~/.aws/config*,
 and create a new |S3| service client.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_object_acl.go
-   :lines: 39-44
+.. literalinclude:: s3.go.get_object_acl.session.txt
    :language: go
    :dedent: 4
 
-Call :sdk-go-api-deep:`GetObjectAcl <service/s3/#S3.GetObjectAcl>`,
+Create a service client and call :sdk-go-api-deep:`GetObjectAcl <service/s3/#S3.GetObjectAcl>`,
 passing in the names of the bucket and object.
-If an error occurs, call ``exitErrorf``.
-If no error occurs, loop through the results
+
+.. literalinclude:: s3.go.get_object_acl.call.txt
+   :language: go
+   :dedent: 4
+
+Loop through the results
 and print out the name, type, and permission for the grantees.
 
-.. literalinclude:: example_code/s3/s3_get_bucket_object_acl.go
-   :lines: 47-61
+.. literalinclude:: s3.go.get_object_acl.print.txt
    :language: go
    :dedent: 4
 
 See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/s3_get_bucket_object_acl.go>`_
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/GetObjectAcl/GetObjectAcl.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-acls-set-bucket-object-acl:
@@ -312,61 +267,44 @@ The
 :sdk-go-api-deep:`PutObjectAcl <service/s3/#S3.PutObjectAcl>`
 function sets the ACLs on a bucket item.
 
-The following example gives a user access by email address to a bucket item,
-with the bucket and item names and email address specified as command line arguments.
-The user can also supply a permission argument.
-However, if it isn't supplied, the user is given READ access to the bucket.
+The following example gives a user with the specified email address read access to a bucket item.
 
-Create the file *s3_put_bucket_object_acl.go*.
+Create the file *PutObjectAcl.go*.
 Add the following statements to import the Go and |sdk-go| packages used in the example.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_object_acl.go
-   :lines: 17-23
+.. literalinclude:: s3.go.put_object_acl.imports.txt
+   :dedent: 0
    :language: go
 
-Create a function to display errors and exit.
-
-.. literalinclude:: example_code/s3/s3_put_bucket_object_acl.go
-   :lines: 101-104
-   :language: go
-
-Get the three required input parameters.
+Get the bucket name, object name, and user's email address from the command line.
 If the optional permission parameter is supplied,
 make sure it is one of the allowed values.
-If not, print an error message and quit.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_object_acl.go
-   :lines: 31-49
+.. literalinclude:: s3.go.put_object_acl.args.txt
    :language: go
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials
 from the shared credentials file *~/.aws/credentials,
-and create a new |S3| service client.
+and create a service client.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_object_acl.go
-   :lines: 53-58
-   :language: go
-   :dedent: 4
-
-Build the parameter list for the call based on the existing
-ACLs and the new user information.
-
-.. literalinclude:: example_code/s3/s3_put_bucket_object_acl.go
-   :lines: 61-90
+.. literalinclude:: s3.go.put_object_acl.session.txt
    :language: go
    :dedent: 4
 
 Call :sdk-go-api-deep:`PutObjectAcl <service/s3/#S3.PutObjectAcl>`,
-passing in the parameter list.
-If an error occurs, display a message and quit.
-Otherwise, display a message indicating success.
+passing in the bucket name, object name, and email address.
 
-.. literalinclude:: example_code/s3/s3_put_bucket_object_acl.go
-   :lines: 93-98
+.. literalinclude:: s3.go.put_object_acl.call.txt
+   :language: go
+   :dedent: 4
+
+Display a message indicating success.
+
+.. literalinclude:: s3.go.put_object_acl.print.txt
    :language: go
    :dedent: 4
 
 See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/s3_put_bucket_object_acl.go>`_
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/PutObjectAcl/PutObjectAcl.go>`_
 on GitHub.

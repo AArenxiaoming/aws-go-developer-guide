@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -29,38 +29,33 @@ use server-side encryption. In that case, the specified encryption takes precede
 
 Choose :code:`Copy` to save the code locally.
 
-Create the file *set_default_encryption.go*.
+Create the file *SetDefaultEncryption.go*.
 
 Import the required packages.
 
-.. literalinclude:: ./example_code/s3/s3_set_default_encryption.go
-   :lines: 17-24
+.. literalinclude:: s3.go.set_default_encryption.imports.txt
    :dedent: 0
    :language: go
 
-Get the KMS key from the command line,
-where :code:`key` is a KMS key ID as created in the :doc:`kms-example-create-key` example,
-and set the bucket name.
+Get the bucket name and KMS key from the command line.
+You can create a KMS key using the :doc:`kms-example-create-key` example.
 
-.. literalinclude:: ./example_code/s3/s3_set_default_encryption.go
-   :lines: 27-33
+.. literalinclude:: s3.go.set_default_encryption.args.txt
    :dedent: 4
    :language: go
 
-Create a session and |S3| client.
+Create a session.
 
-.. literalinclude:: ./example_code/s3/s3_set_default_encryption.go
-   :lines: 38-42
+.. literalinclude:: s3.go.set_default_encryption.session
    :dedent: 4
    :language: go
 
-Create the input for and call :code:`PutBucketEncryption`, and display a success message.
+Create a service client and call :code:`PutBucketEncryption`.
 
-.. literalinclude:: ./example_code/s3/s3_set_default_encryption.go
-   :lines: 45-49, 51, 58
+.. literalinclude:: s3.go.set_default_encryption.call.txt
    :dedent: 4
    :language: go
 
 See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/s3_set_default_encryption.go>`_
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/SetDefaultEncryption/SetDefaultEncryption.go>`_
 on GitHub.

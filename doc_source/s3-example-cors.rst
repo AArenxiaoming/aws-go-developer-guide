@@ -1,4 +1,4 @@
-.. Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -17,7 +17,6 @@ Working with |S3| CORS Permissions
 .. meta::
    :description: Learn to work with cross-origin resource sharing (CORS) for an Amazon S3 bucket using this AWS SDK for Go code example.
    :keywords: AWS SDK for Go code examples, S3, cross origin resource sharing, CORS
-
 
 This |sdk-go| example shows you how to list |S3| buckets and configure
 CORS and bucket logging. You can download complete versions of these example files from the
@@ -52,50 +51,47 @@ Prerequisites
 Configure CORS on the Bucket
 ============================
 
-Create a new Go file named :file:`s3_set_cors.go`. You must import the relevant Go and
+Create a new Go file named :file:`SetCors.go`. You must import the relevant Go and
 |sdk-go| packages by adding the following lines.
 
-.. literalinclude:: s3.go.set_cors.imports.txt
+.. literalinclude:: s3.go.put_bucket_cors.imports.txt
    :dedent: 0
    :language: go
 
 This routine configures CORS rules for a bucket by setting the allowed HTTP methods.
 
-It requires the bucket name and can also take a space-separated list of HTTP methods. Using the
-Go Language's ``flag`` package, it parses the input and validates the bucket name.
+Get the bucket name and a space-separated list of HTTP methods from the command line.
 
-.. literalinclude:: s3.go.set_cors.vars.txt
+.. literalinclude:: s3.go.put_bucket_cors.args.txt
    :dedent: 4
    :language: go
 
 Notice the helper method, ``filterMethods``, which ensures the methods passed in are uppercase.
 
-.. literalinclude:: s3.go.set_cors.filter.txt
+.. literalinclude:: s3.go.put_bucket_cors.filter.txt
    :dedent: 0
    :language: go
 
 Initialize a session that the SDK will use to load credentials,
 from the shared credentials file, ~/.aws/credentials, and create a new S3 service client.
 
-.. literalinclude:: s3.go.set_cors.session.txt
+.. literalinclude:: s3.go.put_bucket_cors.session.txt
    :dedent: 4
    :language: go
 
 Create a new :sdk-go-api-deep:`CORSRule <service/s3/#CORSRule>` to set up the CORS configuration.
 
-.. literalinclude:: s3.go.set_cors.rule.txt
+.. literalinclude:: s3.go.put_bucket_cors.rule.txt
    :dedent: 4
    :language: go
 
-Add the ``CORSRule`` to the ``PutBucketCorsInput`` structure, call ``PutBucketCors`` with
-that structure, and print a success or error message.
+Add the ``CORSRule`` to the ``PutBucketCorsInput`` structure, and call ``PutBucketCors`` with
+that structure.
 
-.. literalinclude:: s3.go.set_cors.put.txt
+.. literalinclude:: snippet-start:[s3.go.put_bucket_cors.call.txt
    :dedent: 4
    :language: go
 
-The example uses the following error function.
-
-.. literalinclude:: s3.go.set_cors.exit.txt
-   :dedent: 0
-   :language: go
+See the
+`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/SetCors/SetCors.go>`_
+on GitHub.

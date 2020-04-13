@@ -1,4 +1,4 @@
-.. Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -17,7 +17,6 @@ Creating Pre-Signed URLs for |S3| Buckets
 .. meta::
    :description: Create presigned URLS to Amazon S3 buckets using this AWS SDK for Go code example.
    :keywords: AWS SDK for Go code examples, S3, create, presigned, URLs
-
 
 This Go example shows you how to obtain a pre-signed URL for an |S3| bucket. You can download complete
 versions of these example files from the :doc-examples-go:`aws-doc-sdk-examples <s3>` repository on GitHub.
@@ -56,7 +55,54 @@ set one by default.
 The following example generates a pre-signed URL that enables you to temporarily share a file
 without making it public. Anyone with access to the URL can view the file.
 
-.. literalinclude:: example_code/s3/generate_presigned_url.go
+
+
+Create the file *GeneratePresignedURL.go*.
+
+Import the required packages.
+
+.. literalinclude:: s3.go.generate_presigned_url.imports.txt
+   :dedent: 0
+   :language: go
+
+Get the bucket name and object key from the command line.
+
+.. literalinclude:: s3.go.generate_presigned_url.args.txt
+   :dedent: 4
+   :language: go
+
+Create a session that loads credentials from the shared credentials file ~/.aws/credentials.
+
+.. literalinclude:: s3.go.generate_presigned_url.session.txt
+   :dedent: 4
+   :language: go
+
+Create a service object, a :code:`GetObjectRequest` object, and call it's :code:`Presign` method
+with a 15 minute duration.
+
+.. literalinclude:: s3.go.generate_presigned_url.call.txt
+   :dedent: 4
+   :language: go
+
+Display the URL to the user, with the message that it is only good for 15 minutes.
+
+.. literalinclude:: s3.go.generate_presigned_url.print.txt
+   :dedent: 4
+   :language: go
+              
+See the `complete example
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/GeneratePresignedURL/GeneratePresignedURL.go>`_
+on GitHub.
+
+
+
+
+
+
+
+
+
+.. literalinclude:: 
    :lines: 14-
    :language: go
 
