@@ -94,7 +94,7 @@ packages used in the example.
    :language: go
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials.
+*~/.aws/credentials*.
 
 .. literalinclude:: s3.go.list_buckets.imports.session.txt
    :language: go
@@ -115,7 +115,7 @@ through the buckets, printing the name and creation date of each bucket.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/ListBuckets/ListBuckets.go>`_
+`ListBuckets example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/ListBuckets/ListBuckets.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-create-bucket:
@@ -142,7 +142,7 @@ The program requires one argument, the name of the bucket to create.
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials, and create a new S3 service client.
+*~/.aws/credentials*, and create a new S3 service client.
 
 .. literalinclude:: s3.go.create_bucket.imports.session.txt
    :language: go
@@ -162,7 +162,7 @@ Wait for a for the bucket to be created.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/CreateBucket/CreateBucket.go>`_
+`CreateBucket example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/CreateBucket/CreateBucket.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-list-bucket-items:
@@ -195,7 +195,7 @@ The program requires one command line argument, the name of the bucket.
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials.
+*~/.aws/credentials*.
 
 .. literalinclude:: s3.go.list_objects.session.txt
    :language: go
@@ -216,7 +216,7 @@ name, last modified date, size, and storage class of each item.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/ListObjects/ListObjects.go>`_
+`ListObjects example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/ListObjects/ListObjects.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-upload-file-to-bucket:
@@ -243,7 +243,7 @@ Get the bucket and file name from the command line arguments
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials, and create a ``NewUploader`` object.
+*~/.aws/credentials*, and create a ``NewUploader`` object.
 
 .. literalinclude:: s3.go.upload_object.session.txt
    :language: go
@@ -263,7 +263,7 @@ Upload the file to the bucket.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/UploadObject/UploadObject.go>`_
+`UploadObject example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/UploadObject/UploadObject.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-download-file-from-bucket:
@@ -291,7 +291,7 @@ Get the bucket and file name from the command line arguments.
    :dedent: 4
 
 Create a session that loads credentials from the shared
-credentials file *~/.aws/credentials.
+credentials file *~/.aws/credentials*.
 
 .. literalinclude:: s3.go.download_object.session.txt
    :language: go
@@ -310,7 +310,7 @@ Create a ``NewDownloader`` object and download the file.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/Downloadobject/Downloadobject.go>`_
+`DownloadObject example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/Downloadobject/Downloadobject.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-copy-bucket-item:
@@ -339,7 +339,7 @@ which the item is copied.
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials, and create a new |S3| service client.
+*~/.aws/credentials*, and create a new |S3| service client.
 
 .. literalinclude:: s3.go.copy_object.session.txt
    :language: go
@@ -366,7 +366,7 @@ Notify the user that the copy succeeded.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/CopyObject/CopyObject.go>`_
+`CopyObject example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/CopyObject/CopyObject.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-delete-bucket-item:
@@ -394,7 +394,7 @@ Get the name of the bucket and object to delete.
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials.
+*~/.aws/credentials*.
 
 .. literalinclude:: s3.go.delete_object.session.txt
    :language: go
@@ -420,7 +420,7 @@ Print a message.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/DeleteObject/DeleteObject.go>`_
+`DeleteObject example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/DeleteObject/DeleteObject.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-delete-all-bucket-items:
@@ -448,7 +448,7 @@ Get the name of the bucket.
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials.
+*~/.aws/credentials*.
 
 .. literalinclude:: s3.go.delete_objects.session.txt
    :language: go
@@ -468,7 +468,7 @@ Inform the user that the objects were deleted.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/DeleteObjects/DeleteObjects.go>`_
+`DeleteObjects example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/DeleteObjects/DeleteObjects.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-restore-bucket-item:
@@ -485,7 +485,7 @@ Create the file *RestoreObject.go*. Add the following statements to import the G
 packages used in the example.
 
 .. literalinclude:: s3.go.restore_object.imports.txt
-   :lines: go
+   :language: go
    :dedent: 0
 
 The program requires two arguments, the names of the bucket and object to restore.
@@ -495,7 +495,7 @@ The program requires two arguments, the names of the bucket and object to restor
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials.
+*~/.aws/credentials*.
 
 .. literalinclude:: s3.go.restore_object.session.txt
    :language: go
@@ -515,7 +515,7 @@ Inform the user that the bucket should be restored.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/RestoreObject/RestoreObject.go>`_
+`RestoreObject example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/RestoreObject/RestoreObject.go>`_
 on GitHub.
 
 .. _s3-examples-bucket-ops-delete-bucket:
@@ -540,7 +540,7 @@ The program requires one argument, the name of the bucket to delete.
    :dedent: 4
 
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials, and create a new S3 service client.
+*~/.aws/credentials*, and create a new S3 service client.
 
 .. literalinclude:: s3.go.delete_bucket.imports.session.txt
    :language: go
@@ -560,5 +560,5 @@ Wait for a notification that the bucket was deleted.
    :dedent: 4
 
 See the
-`complete example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/DeleteBucket/DeleteBucket.go>`_
+`DeleteBucket example <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/s3/DeleteBucket/DeleteBucket.go>`_
 on GitHub.

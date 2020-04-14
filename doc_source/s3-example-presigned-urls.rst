@@ -55,8 +55,6 @@ set one by default.
 The following example generates a pre-signed URL that enables you to temporarily share a file
 without making it public. Anyone with access to the URL can view the file.
 
-
-
 Create the file *GeneratePresignedURL.go*.
 
 Import the required packages.
@@ -90,24 +88,12 @@ Display the URL to the user, with the message that it is only good for 15 minute
    :dedent: 4
    :language: go
               
-See the `complete example
-<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/GeneratePresignedURL/GeneratePresignedURL.go>`_
-on GitHub.
-
-
-
-
-
-
-
-
-
-.. literalinclude:: 
-   :lines: 14-
-   :language: go
-
 If the SDK has not retrieved your credentials before calling ``Presign``, it will get them to
 generate the pre-signed URL.
+
+See the `GeneratePresignedURL example
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/GeneratePresignedURL/GeneratePresignedURL.go>`_
+on GitHub.
 
 .. _generate-a-pre-signed-url-put:
 
@@ -123,15 +109,85 @@ This is not the Content-MD5, but the signature. To enforce Content-MD5, simply a
 The following example adds a ``Body`` field to generate a pre-signed PUT operation that requires
 a specific payload to be uploaded by users.
 
-.. literalinclude:: example_code/s3/generate_presigned_url_specific_payload.go
-   :lines: 14-
+Create the file *GeneratePresignedURLSpecificPayload.go*.
+
+Import the required packages.
+
+.. literalinclude:: s3.go.generate_presigned_url_specific_payload.imports.txt
    :language: go
+   :dedent: 0
 
-If you omit the ``Body`` field, users can write any contents to the given
-object.
+Get the bucket name, key name, and content from the command line.
 
-The following example shows the enforcing of Content-MD5.
-
-.. literalinclude:: example_code/s3/enforce_content_md5.go
-   :lines: 14-
+.. literalinclude:: s3.go.generate_presigned_url_specific_payload.args.txt
    :language: go
+   :dedent: 4
+
+Create a session object.
+
+.. literalinclude:: s3.go.generate_presigned_url_specific_payload.session.txt
+   :language: go
+   :dedent: 4
+
+Create a service object, :code:`PutObjectRequest` object, and call :code:`Presign`.
+
+.. literalinclude:: s3.go.generate_presigned_url_specific_payload.call.txt
+   :language: go
+   :dedent: 4
+
+See the `GeneratePresignedURLSpecificPayload example
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/GeneratePresignedURLSpecificPayload/GeneratePresignedURLSpecificPayload.go>`_
+on GitHub.
+
+.. _enforce-md5-content:
+
+Ensure Content with MD5 Hash
+============================
+
+You can ensure that the content that is uploaded is correct by confirming the MD5 hash of the content.
+
+Create the file *EnforceMD5Content.go* and add the following import statements.
+
+.. literalinclude:: s3.go.enforce_md5.imports.txt
+   :language: go
+   :dedent: 0
+
+Get the bucket name and key name from the command line.
+
+.. literalinclude:: s3.go.enforce_md5.args.txt
+   :language: go
+   :dedent: 0
+
+Create a session object.
+
+.. literalinclude:: s3.go.enforce_md5.session.txt
+   :language: go
+   :dedent: 4
+
+Create a service client and MD5 object.
+
+.. literalinclude:: s3.go.enforce_md5.client_md5.txt
+   :language: go
+   :dedent: 4
+
+Create a :code:`PutObjectRequest` object, add an MD5 header to it, and call its :code:`Presign` method.
+
+.. literalinclude:: s3.go.enforce_md5.put_object.txt
+   :language: go
+   :dedent: 4
+
+Create a :code:`NewRequest` object.
+
+.. literalinclude:: s3.go.enforce_md5.new_request.txt
+   :language: go
+   :dedent: 4
+
+Create a :code:`DefaultClient` object.
+
+.. literalinclude:: s3.go.enforce_md5.default_client.txt
+   :language: go
+   :dedent: 4
+
+See the `EnforceMD5Content example
+<https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/go/example_code/s3/EnforceMD5/EnforceMD5Content.go>`_
+on GitHub.

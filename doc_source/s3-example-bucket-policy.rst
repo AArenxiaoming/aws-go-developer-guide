@@ -115,10 +115,10 @@ Get the name of the bucket from the command line.
    :language: go
               
 Initialize the session that the SDK uses to load credentials from the shared credentials file
-*~/.aws/credentials
+*~/.aws/credentials*
 
 .. literalinclude:: s3.go.set_bucket_policy.session.txt
-   :lines: 17-26
+   :dedent: 4
    :language: go
 
 Create a service object and a policy, filling in the bucket as the resource.
